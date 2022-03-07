@@ -13,7 +13,10 @@ const OtherBox = (props: Props) => {
     <FormBox>
       <Typography variant="subtitle2" sx={{ textAlign: "center" }}>
         Don't have an account?{" "}
-        <Box component="span" sx={{ color: "primary.main" }}>
+        <Box
+          component="span"
+          sx={{ color: "primary.main", fontWeight: "bold" }}
+        >
           Sign Up
         </Box>
       </Typography>

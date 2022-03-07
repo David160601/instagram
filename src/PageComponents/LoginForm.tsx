@@ -18,13 +18,14 @@ const LoginForm = (props: Props) => {
         component="div"
         sx={{ display: "flex", justifyContent: "center", mb: 2 }}
       >
-        <Image src="/img/logo.png" alt="nextjs" width="160" height="85 " />
+        <Image src="/img/logo.png" alt="nextjs" width="160" height="85" />
       </Box>
       <TextField
         autoComplete="false"
         label="Phone number,username,or email"
         variant="filled"
         fullWidth
+        InputProps={{ disableUnderline: true }}
         size="small"
         sx={{ mb: 1 }}
       />
@@ -33,25 +34,30 @@ const LoginForm = (props: Props) => {
         variant="filled"
         label="Password"
         type="password"
+        InputProps={{ disableUnderline: true }}
         fullWidth
         size="small"
         sx={{ mb: 1 }}
       />
       <Button
+        disableElevation
         variant="contained"
         size="small"
         fullWidth
-        sx={{ my: 1, textTransform: "none" }}
+        sx={{ my: 1, textTransform: "none", fontWeight: "bold" }}
       >
         Log in
       </Button>
 
       <Box
         component="div"
-        sx={{ display: "flex", alignItems: "center", my: 1 }}
+        sx={{ display: "flex", alignItems: "center", my: 0.8 }}
       >
         <Box sx={{ height: "1px", background: "#dbdbdb", width: "100%" }} />
-        <Typography sx={{ px: 3 }} variant="subtitle2">
+        <Typography
+          sx={{ px: 3, mb: -1, fontWeight: "bold", color: "grey" }}
+          variant="subtitle2"
+        >
           OR
         </Typography>
         <Box sx={{ height: "1px", background: "#dbdbdb", width: "100%" }} />
@@ -61,7 +67,14 @@ const LoginForm = (props: Props) => {
       <Link href="/">
         <Typography
           variant="subtitle2"
-          sx={{ textAlign: "center", cursor: "pointer", mt: 3, mb: 2 }}
+          sx={{
+            textAlign: "center",
+            color: "primary.dark",
+            cursor: "pointer",
+            mt: 3,
+            mb: 2,
+            fontWeight: "bold",
+          }}
         >
           Log in with Facebook
         </Typography>
