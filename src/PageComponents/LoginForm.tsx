@@ -2,12 +2,11 @@ import { Box, Button, styled, TextField, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { theme } from "src/Theme";
 
 const FormBox = styled("div")(({ theme }) => ({
   width: 270,
   padding: theme.spacing(2, 5),
-  border: "solid 1px #dbdbdb",
+  border: `solid 1px ${theme.palette.borderColor}`,
   background: "white",
   marginBottom: theme.spacing(1),
 }));
@@ -32,13 +31,13 @@ const LoginForm = (props: Props) => {
         fullWidth
         InputProps={{
           disableUnderline: true,
-          style: { paddingTop: 0 },
+          style: { paddingTop: "0 !Important" },
         }}
-        InputLabelProps={{
-          style: {
-            fontSize: "12px",
-          },
-        }}
+        // InputLabelProps={{
+        //   style: {
+        //     fontSize: "12px",
+        //   },
+        // }}
         size="small"
         sx={{ mb: 1, backgroundColor: "backgroundColor" }}
       />
@@ -47,11 +46,11 @@ const LoginForm = (props: Props) => {
         variant="filled"
         label="Password"
         type="password"
-        InputLabelProps={{
-          style: {
-            fontSize: "12px",
-          },
-        }}
+        // InputLabelProps={{
+        //   style: {
+        //     fontSize: "12px",
+        //   },
+        // }}
         InputProps={{ disableUnderline: true }}
         fullWidth
         size="small"

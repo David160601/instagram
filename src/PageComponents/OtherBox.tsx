@@ -3,7 +3,7 @@ import React from "react";
 const FormBox = styled("div")(({ theme }) => ({
   width: 270,
   padding: theme.spacing(2.5, 5),
-  border: "solid 1px #dbdbdb",
+  border: `solid 1px ${theme.palette.borderColor}`,
   background: "white",
   marginBottom: theme.spacing(2),
 }));
@@ -15,7 +15,7 @@ const OtherBox = (props: Props) => {
         Don't have an account?{" "}
         <Box
           component="span"
-          sx={{ color: "primary.main", fontWeight: "bold" }}
+          sx={{ color: "primary.main", fontWeight: "bold", cursor: "pointer" }}
         >
           Sign Up
         </Box>
