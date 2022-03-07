@@ -6,7 +6,7 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
   backgroundColor: "white !important",
   "& .MuiFilledInput-input": {
     backgroundColor: theme.palette.backgroundColor,
-    fontSize: 12,
+    fontSize: 11,
   },
 }));
 const TextFieldstyled = (props: TextFieldProps) => {
@@ -18,7 +18,7 @@ const TextFieldstyled = (props: TextFieldProps) => {
       }}
       InputLabelProps={{
         style: {
-          fontSize: 12,
+          fontSize: 11.5,
         },
       }}
       size="small"
