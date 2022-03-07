@@ -14,4 +14,12 @@ export const theme = createTheme({
       main: "#0095f6",
     },
   },
+  typography: {
+    subtitle1: {
+      fontSize: "14px",
+    },
+    subtitle2: {
+      fontSize: "12px",
+    },
+  },
 });

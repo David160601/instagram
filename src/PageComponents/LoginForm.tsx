@@ -40,11 +40,16 @@ const LoginForm = (props: Props) => {
         sx={{ mb: 1 }}
       />
       <Button
+        color="primary"
         disableElevation
         variant="contained"
         size="small"
         fullWidth
-        sx={{ my: 1, textTransform: "none", fontWeight: "bold" }}
+        sx={{
+          my: 1,
+          textTransform: "none",
+          fontWeight: "bold",
+        }}
       >
         Log in
       </Button>
