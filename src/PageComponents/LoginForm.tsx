@@ -8,6 +8,7 @@ const FormBox = styled("div")(({ theme }) => ({
   padding: theme.spacing(2, 5),
   border: "solid 1px #dbdbdb",
   background: "white",
+  marginBottom: theme.spacing(1),
 }));
 type Props = {};
 const LoginForm = (props: Props) => {
@@ -17,7 +18,7 @@ const LoginForm = (props: Props) => {
         component="div"
         sx={{ display: "flex", justifyContent: "center", mb: 2 }}
       >
-        <Image src="/img/logo.png" alt="nextjs" width="160" height="80" />
+        <Image src="/img/logo.png" alt="nextjs" width="160" height="85 " />
       </Box>
       <TextField
         autoComplete="false"

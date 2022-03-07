@@ -1,7 +1,9 @@
 import { Box } from "@mui/material";
 import React from "react";
 import Home from "src/components/Layouts/Home";
+import AppBox from "src/PageComponents/AppBox";
 import LoginForm from "src/PageComponents/LoginForm";
+import OtherBox from "src/PageComponents/OtherBox";
 const index: React.FC = () => {
   return (
     <Home>
@@ -10,11 +12,14 @@ const index: React.FC = () => {
         sx={{
           height: "80vh",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
         <LoginForm />
+        <OtherBox />
+        <AppBox />
       </Box>
     </Home>
   );
