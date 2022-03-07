@@ -52,11 +52,11 @@ const LoginForm = (props: Props) => {
 
       <Box
         component="div"
-        sx={{ display: "flex", alignItems: "center", my: 0.8 }}
+        sx={{ display: "flex", alignItems: "center", my: 1 }}
       >
         <Box sx={{ height: "1px", background: "#dbdbdb", width: "100%" }} />
         <Typography
-          sx={{ px: 3, mb: -1, fontWeight: "bold", color: "grey" }}
+          sx={{ px: 2.5, mb: -1, fontWeight: "bold", color: "greyLetter" }}
           variant="subtitle2"
         >
           OR
@@ -71,7 +71,7 @@ const LoginForm = (props: Props) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            mt: 3,
+            mt: 4,
             mb: 2,
           }}
         >
@@ -96,7 +96,7 @@ const LoginForm = (props: Props) => {
       <Link href="/">
         <Typography
           variant="subtitle2"
-          sx={{ textAlign: "center", cursor: "pointer" }}
+          sx={{ textAlign: "center", cursor: "pointer", mt: 1 }}
         >
           Forgot Password?
         </Typography>
