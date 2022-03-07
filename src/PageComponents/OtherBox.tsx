@@ -2,7 +2,7 @@ import { Box, styled, Typography } from "@mui/material";
 import React from "react";
 const FormBox = styled("div")(({ theme }) => ({
   width: 270,
-  padding: theme.spacing(2, 5),
+  padding: theme.spacing(2.5, 5),
   border: "solid 1px #dbdbdb",
   background: "white",
   marginBottom: theme.spacing(2),

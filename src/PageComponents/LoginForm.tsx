@@ -2,6 +2,7 @@ import { Box, Button, styled, TextField, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { theme } from "src/Theme";
 
 const FormBox = styled("div")(({ theme }) => ({
   width: 270,
@@ -9,6 +10,10 @@ const FormBox = styled("div")(({ theme }) => ({
   border: "solid 1px #dbdbdb",
   background: "white",
   marginBottom: theme.spacing(1),
+}));
+const TextFieldstyled = styled(TextField)(({ theme }) => ({
+  border: "solid 1px #dbdbdb",
+  borderRadius: theme.spacing(0.4),
 }));
 type Props = {};
 const LoginForm = (props: Props) => {
@@ -20,20 +25,33 @@ const LoginForm = (props: Props) => {
       >
         <Image src="/img/logo.png" alt="nextjs" width="160" height="85" />
       </Box>
-      <TextField
+      <TextFieldstyled
         autoComplete="false"
-        label="Phone number,username,or email"
+        label="Phone number, username, or email"
         variant="filled"
         fullWidth
-        InputProps={{ disableUnderline: true }}
+        InputProps={{
+          disableUnderline: true,
+          style: { paddingTop: 0 },
+        }}
+        InputLabelProps={{
+          style: {
+            fontSize: "12px",
+          },
+        }}
         size="small"
-        sx={{ mb: 1 }}
+        sx={{ mb: 1, backgroundColor: "backgroundColor" }}
       />
-      <TextField
+      <TextFieldstyled
         autoComplete="false"
         variant="filled"
         label="Password"
         type="password"
+        InputLabelProps={{
+          style: {
+            fontSize: "12px",
+          },
+        }}
         InputProps={{ disableUnderline: true }}
         fullWidth
         size="small"
