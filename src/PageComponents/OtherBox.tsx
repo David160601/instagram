@@ -6,19 +6,21 @@ const FormBox = styled("div")(({ theme }) => ({
   border: `solid 1px ${theme.palette.borderColor}`,
   background: "white",
   marginBottom: theme.spacing(2),
+  display: "flex",
+  justifyContent: "center",
 }));
 type Props = {};
 const OtherBox = (props: Props) => {
   return (
     <FormBox>
-      <Typography variant="subtitle2" sx={{ textAlign: "center" }}>
-        Don't have an account?{" "}
-        <Box
-          component="span"
-          sx={{ color: "primary.main", fontWeight: "bold", cursor: "pointer" }}
-        >
-          Sign Up
-        </Box>
+      <Typography variant="subtitle2" sx={{ textAlign: "center", mr: 0.5 }}>
+        Don't have an account?{"  "}
+      </Typography>
+      <Typography
+        variant="subtitle2"
+        sx={{ color: "primary.main", fontWeight: "bold", cursor: "pointer" }}
+      >
+        Sign Up
       </Typography>
     </FormBox>
   );

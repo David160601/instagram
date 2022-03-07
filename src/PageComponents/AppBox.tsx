@@ -6,20 +6,20 @@ type Props = {};
 const AppBox = (props: Props) => {
   return (
     <Box component="div">
-      <Typography variant="subtitle2" sx={{ textAlign: "center",mb:2.5}}>
+      <Typography variant="subtitle2" sx={{ textAlign: "center", mb: 2.5 }}>
         Get the app.
       </Typography>
       <Grid container spacing={1}>
         <Grid item>
           <Box
-            sx={{ width: "130px" }}
+            sx={{ width: "130px", cursor: "pointer" }}
             component="img"
             src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/180ae7a0bcf7.png"
           ></Box>
         </Grid>
         <Grid item>
           <Box
-            sx={{ width: "130px" }}
+            sx={{ width: "130px", cursor: "pointer" }}
             component="img"
             src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/e9cd846dc748.png"
           ></Box>
