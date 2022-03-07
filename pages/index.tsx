@@ -1,17 +1,12 @@
+import { Box } from "@mui/material";
 import React from "react";
-
-
-
-const Home: React.FC = () => {
+import Home from "src/components/Layouts/Home";
+const index: React.FC = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-      }}
-    ></div>
+    <Home>
+      <Box component="div" sx={{}}></Box>
+    </Home>
   );
 };
 
-export default Home;
+export default index;
