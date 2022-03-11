@@ -11,7 +11,7 @@ const index: React.FC = () => {
       <Box
         component="div"
         sx={{
-          height: "90vh",
+          minHeight: "90vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
