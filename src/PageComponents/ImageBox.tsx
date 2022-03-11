@@ -1,8 +1,13 @@
-import { Box } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import React from "react";
 import Slider from "react-slick";
+const ImgBoxStyled = styled(Box)(({ theme }) => ({
+  position: "relative",
+  [theme.breakpoints.down("md")]: {
+    display: "none",
+  },
+}));
 type Props = {};
-
 const ImageBox = (props: Props) => {
   const settings = {
     fade: true,
@@ -12,7 +17,7 @@ const ImageBox = (props: Props) => {
     autoplaySpeed: 2000,
   };
   return (
-    <Box component="div" sx={{ position: "relative", mr: 3 }}>
+    <ImgBoxStyled component="div" sx={{ mr: 3 }}>
       <Box component="img" src="/img/phone.png"></Box>
       <Box
         component="div"
@@ -45,7 +50,7 @@ const ImageBox = (props: Props) => {
           </Box>
         </Slider>
       </Box>
-    </Box>
+    </ImgBoxStyled>
   );
 };
 
