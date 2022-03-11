@@ -12,17 +12,11 @@ const ImageBox = (props: Props) => {
     autoplaySpeed: 2000,
   };
   return (
-    <Box
-      component="div"
-      sx={{ position: "relative",  padding: 0, margin: 0 }}
-    >
-      <Box
-        component="img"
-        src="https://www.instagram.com/static/images/homepage/phones/home-phones.png/1dc085cdb87d.png"
-      ></Box>
+    <Box component="div" sx={{ position: "relative", mr: 3 }}>
+      <Box component="img" src="/img/phone.png"></Box>
       <Box
         component="div"
-        sx={{ position: "absolute", left: 153, top: 26, width: "100%" }}
+        sx={{ position: "absolute", left: 125, top: 26, width: "100%" }}
       >
         <Slider {...settings} arrows={false}>
           <Box component="div">

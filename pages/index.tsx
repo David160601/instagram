@@ -20,7 +20,7 @@ const index: React.FC = () => {
       >
         <Box component="div" sx={{ display: "flex" }}>
           <ImageBox />
-          <Box component="div" sx={{ mt: 2, ml: -1 }}>
+          <Box component="div" sx={{ mt: 2 }}>
             <LoginForm />
             <OtherBox />
             <AppBox />
