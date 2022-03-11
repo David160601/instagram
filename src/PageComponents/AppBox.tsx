@@ -9,7 +9,7 @@ const AppBox = (props: Props) => {
       <Typography variant="subtitle2" sx={{ textAlign: "center", mb: 2.5 }}>
         Get the app.
       </Typography>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} justifyContent="center">
         <Grid item>
           <Box
             sx={{ width: "130px", cursor: "pointer" }}
