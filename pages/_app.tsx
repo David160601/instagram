@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import store from "@redux/store";
 import { theme } from "src/Theme/index";
 import { ThemeProvider } from "@mui/material/styles";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <Provider store={store}>
