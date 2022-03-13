@@ -23,7 +23,7 @@ const signup: React.FC = () => {
       <Container>
         <Box component="div" sx={{ display: "flex", alignItems: "center" }}>
           <ImageBox />
-          <Box component="div" sx={{ mt: 2 }}>
+          <Box component="div" sx={{ mt: -5 }}>
             <RegisterForm />
             <OtherBox title="Have an account ?" href="/" label="Login" />
             <AppBox />

@@ -21,16 +21,17 @@ type Props = {};
 const RegisterForm = (props: Props) => {
   return (
     <FormBox>
-      <Box component="div" sx={{ display: "flex", justifyContent: "center" }}>
+      <Box
+        component="div"
+        sx={{ display: "flex", justifyContent: "center", mb: -1 }}
+      >
         <Image src="/img/logo.png" alt="nextjs" width="160" height="85" />
       </Box>
       <Typography
-        variant="subtitle1"
         sx={{
           fontWeight: "bold",
           textAlign: "center",
           color: "greyLetter",
-          mb: 1.5,
         }}
       >
         Sign up to see photos and videos from your friends.
@@ -42,6 +43,7 @@ const RegisterForm = (props: Props) => {
         size="small"
         fullWidth
         sx={{
+          mt: 1,
           textTransform: "none",
           fontWeight: "bold",
         }}
@@ -50,7 +52,7 @@ const RegisterForm = (props: Props) => {
       </Button>
       <Box
         component="div"
-        sx={{ display: "flex", alignItems: "center", my: 2 }}
+        sx={{ display: "flex", alignItems: "center", my: 3 }}
       >
         <Box sx={{ height: "1px", background: "#dbdbdb", width: "100%" }} />
         <Typography
@@ -67,21 +69,21 @@ const RegisterForm = (props: Props) => {
         variant="filled"
         fullWidth
         size="small"
-        sx={{ mb: 1 }}
+        sx={{ mb: 0.8 }}
       />
       <TextFieldstyled
-        label="Fullname"
+        label="Full name"
         variant="filled"
         fullWidth
         size="small"
-        sx={{ mb: 1 }}
+        sx={{ mb: 0.8 }}
       />
       <TextFieldstyled
         label="Username"
         variant="filled"
         fullWidth
         size="small"
-        sx={{ mb: 1 }}
+        sx={{ mb: 0.8 }}
       />
       <TextFieldstyled
         variant="filled"
@@ -89,7 +91,7 @@ const RegisterForm = (props: Props) => {
         type="password"
         fullWidth
         size="small"
-        sx={{ mb: 1 }}
+        sx={{ mb: 0.8 }}
       />
       <Button
         color="primary"
@@ -98,7 +100,7 @@ const RegisterForm = (props: Props) => {
         size="small"
         fullWidth
         sx={{
-          my: 1,
+          my: 0.5,
           textTransform: "none",
           fontWeight: "bold",
         }}
@@ -107,7 +109,7 @@ const RegisterForm = (props: Props) => {
       </Button>
       <Typography
         variant="subtitle2"
-        sx={{ textAlign: "center", color: "greyLetter", mt: 1.5, mb: 2.5 }}
+        sx={{ textAlign: "center", color: "greyLetter", mt: 1.5, mb: 2 }}
       >
         By signing up, you agree to our Terms , Data Policy and Cookies Policy .
       </Typography>
