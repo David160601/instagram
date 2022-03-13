@@ -2,9 +2,9 @@ import { Box, styled } from "@mui/material";
 import React from "react";
 import Home from "src/components/Layouts/Home";
 import AppBox from "src/PageComponents/AppBox";
-import LoginForm from "src/PageComponents/LoginForm";
 import OtherBox from "src/PageComponents/OtherBox";
 import ImageBox from "src/PageComponents/ImageBox";
+import RegisterForm from "src/PageComponents/RegisterForm";
 const Container = styled("div")(({ theme }) => ({
   minHeight: "90vh",
   display: "flex",
@@ -21,10 +21,10 @@ const signup: React.FC = () => {
   return (
     <Home>
       <Container>
-        <Box component="div" sx={{ display: "flex" }}>
+        <Box component="div" sx={{ display: "flex", alignItems: "center" }}>
           <ImageBox />
           <Box component="div" sx={{ mt: 2 }}>
-            <LoginForm />
+            <RegisterForm />
             <OtherBox title="Have an account ?" href="/" label="Login" />
             <AppBox />
           </Box>
