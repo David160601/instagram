@@ -10,6 +10,9 @@ declare module "@mui/material/styles" {
     borderColor: string;
     greyLetter: string;
   }
+  interface BreakpointOverrides {
+    mobile: true; // adds the `mobile` breakpoint
+  }
 }
 export const theme = createTheme({
   palette: {
@@ -26,6 +29,16 @@ export const theme = createTheme({
     },
     subtitle2: {
       fontSize: "12px",
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      mobile: 400,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
     },
   },
 });
