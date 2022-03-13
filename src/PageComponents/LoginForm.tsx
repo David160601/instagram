@@ -11,7 +11,7 @@ const FormBox = styled("div")(({ theme }) => ({
   marginBottom: theme.spacing(1),
   [theme.breakpoints.down("mobile")]: {
     width: "100%",
-    height: "100%",
+
     padding: 0,
     background: "none",
     border: "none",
