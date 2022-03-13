@@ -17,17 +17,22 @@ const Container = styled("div")(({ theme }) => ({
     background: "white",
   },
 }));
+const Formbox = styled("div")(({ theme }) => ({
+  [theme.breakpoints.down("mobile")]: {
+    marginTop: 0,
+  },
+}));
 const signup: React.FC = () => {
   return (
     <Home>
       <Container>
         <Box component="div" sx={{ display: "flex", alignItems: "center" }}>
           <ImageBox />
-          <Box component="div" sx={{ mt: -5 }}>
+          <Formbox sx={{ mt: -5 }}>
             <RegisterForm />
             <OtherBox title="Have an account ?" href="/" label="Login" />
             <AppBox />
-          </Box>
+          </Formbox>
         </Box>
       </Container>
     </Home>
