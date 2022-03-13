@@ -1,4 +1,4 @@
-import { Box, styled, Typography } from "@mui/material";
+import { styled, Typography } from "@mui/material";
 import React from "react";
 const FormBox = styled("div")(({ theme }) => ({
   width: 270,
@@ -8,6 +8,12 @@ const FormBox = styled("div")(({ theme }) => ({
   marginBottom: theme.spacing(2.5),
   display: "flex",
   justifyContent: "center",
+  [theme.breakpoints.down("mobile")]: {
+    width: "100%",
+    padding: 0,
+    background: "none",
+    border: "none",
+  },
 }));
 type Props = {};
 const OtherBox = (props: Props) => {

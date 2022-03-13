@@ -9,6 +9,13 @@ const FormBox = styled("div")(({ theme }) => ({
   border: `solid 1px ${theme.palette.borderColor}`,
   background: "#FFFFFF",
   marginBottom: theme.spacing(1),
+  [theme.breakpoints.down("mobile")]: {
+    width: "100%",
+    height: "100%",
+    padding: 0,
+    background: "none",
+    border: "none",
+  },
 }));
 type Props = {};
 const LoginForm = (props: Props) => {
