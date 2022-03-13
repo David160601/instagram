@@ -1,4 +1,5 @@
 import { styled, Typography } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 const FormBox = styled("div")(({ theme }) => ({
   width: 270,
@@ -15,19 +16,29 @@ const FormBox = styled("div")(({ theme }) => ({
     border: "none",
   },
 }));
-type Props = {};
-const OtherBox = (props: Props) => {
+type Props = {
+  title: string;
+  label: string;
+  href: string;
+};
+const OtherBox = ({
+  title = "Title",
+  href = "href",
+  label = "label",
+}: Props) => {
   return (
     <FormBox>
       <Typography variant="subtitle2" sx={{ textAlign: "center", mr: 0.5 }}>
-        Don't have an account?{"  "}
+        {title}
       </Typography>
-      <Typography
-        variant="subtitle2"
-        sx={{ color: "primary.main", fontWeight: "bold", cursor: "pointer" }}
-      >
-        Sign Up
-      </Typography>
+      <Link href={href}>
+        <Typography
+          variant="subtitle2"
+          sx={{ color: "primary.main", fontWeight: "bold", cursor: "pointer" }}
+        >
+          {label}
+        </Typography>
+      </Link>
     </FormBox>
   );
 };

@@ -17,7 +17,7 @@ const Container = styled("div")(({ theme }) => ({
     background: "white",
   },
 }));
-const index: React.FC = () => {
+const signup: React.FC = () => {
   return (
     <Home>
       <Container>
@@ -25,11 +25,7 @@ const index: React.FC = () => {
           <ImageBox />
           <Box component="div" sx={{ mt: 2 }}>
             <LoginForm />
-            <OtherBox
-              title="Don't have an account?"
-              href="/signup"
-              label="Sign up"
-            />
+            <OtherBox title="Have an account ?" href="/" label="Login" />
             <AppBox />
           </Box>
         </Box>
@@ -38,4 +34,4 @@ const index: React.FC = () => {
   );
 };
 
-export default index;
+export default signup;
