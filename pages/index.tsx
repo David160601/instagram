@@ -14,7 +14,6 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("mobile")]: {
     justifyContent: "start",
     padding: theme.spacing(0, 6),
-    background: "white",
   },
 }));
 const index: React.FC = () => {

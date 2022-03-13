@@ -1,11 +1,15 @@
-import { Box, Typography } from "@mui/material";
+import { Box, styled, Typography } from "@mui/material";
 import React from "react";
-
+const FooterContainer = styled("div")(({ theme }) => ({
+  minHeight: "10vh",
+  [theme.breakpoints.down("mobile")]: {
+    padding: theme.spacing(3, 1),
+  },
+}));
 type Props = {};
-
 const Footer = (props: Props) => {
   return (
-    <Box component="div" sx={{ height: "10vh" }}>
+    <FooterContainer>
       <Box
         component="div"
         sx={{
@@ -110,7 +114,7 @@ const Footer = (props: Props) => {
           © 2022 Instagram from Meta
         </Typography>
       </Box>
-    </Box>
+    </FooterContainer>
   );
 };
 
