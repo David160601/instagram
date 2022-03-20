@@ -1,4 +1,4 @@
-import { styled, TextField, TextFieldProps, useTheme } from "@mui/material";
+import { styled, TextField, TextFieldProps } from "@mui/material";
 import React from "react";
 const CustomTextField = styled(TextField)(({ theme }) => ({
   border: `solid 1px ${theme.palette.borderColor}`,
@@ -10,7 +10,6 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 const TextFieldstyled = (props: TextFieldProps) => {
-  const theme = useTheme();
   return (
     <CustomTextField
       InputProps={{
