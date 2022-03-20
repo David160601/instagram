@@ -20,7 +20,7 @@ const authSlice = createSlice({
 
 export const loginUser = (data: LoginInterface) => async () => {
     try {
-        const test = service.post("auth/login", data);
+        const test = await service.post("auth/login", data);
         console.log(test)
     } catch (error) {
         console.log(error);
