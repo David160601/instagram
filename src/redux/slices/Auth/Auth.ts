@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import service from "src/Service";
 
 interface AuthInterface {
     user: UserInterface | null;
@@ -17,9 +18,10 @@ const authSlice = createSlice({
     },
 });
 
-export const loginUser = (data: UserInterface) => async () => {
+export const loginUser = (data: LoginInterface) => async () => {
     try {
-        console.log(data)
+        const test = service.post("auth/login", data);
+        console.log(test)
     } catch (error) {
         console.log(error);
     }

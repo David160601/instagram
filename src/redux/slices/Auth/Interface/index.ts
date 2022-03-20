@@ -8,3 +8,7 @@ interface UserInterface {
     updated_at: string;
     token: string;
 }
+interface LoginInterface {
+    email_or_phone: string;
+    password: string;
+}

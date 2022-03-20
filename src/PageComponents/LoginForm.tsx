@@ -5,6 +5,8 @@ import React from "react";
 import TextFieldstyled from "@components/TextFieldStyled";
 import { useFormik, Field, FormikProvider } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { loginUser } from "@redux/slices/Auth/Auth";
 const FormBox = styled("div")(({ theme }) => ({
   width: 270,
   padding: theme.spacing(2, 5),
@@ -20,18 +22,19 @@ const FormBox = styled("div")(({ theme }) => ({
 }));
 type Props = {};
 const LoginForm = (props: Props) => {
+  const dispatch = useDispatch();
   const signInSchema = Yup.object().shape({
-    email: Yup.string().required("Required"),
+    email_or_phone: Yup.string().required("Required"),
     password: Yup.string().required("Required"),
   });
   const formik = useFormik({
     initialValues: {
-      email: "",
+      email_or_phone: "",
       password: "",
     },
     validationSchema: signInSchema,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: (values: LoginInterface) => {
+      dispatch(loginUser(values));
     },
   });
   const { handleSubmit, errors } = formik;
@@ -47,8 +50,8 @@ const LoginForm = (props: Props) => {
         </Box>
         {/* FORM */}
         <Field
-          name="email"
-          id="email"
+          name="email_or_phone"
+          id="email_or_phone"
           label="Phone number, username, or email"
           variant="filled"
           fullWidth
@@ -68,7 +71,7 @@ const LoginForm = (props: Props) => {
           as={TextFieldstyled}
         />
         <Button
-          disabled={errors.password || errors.email ? true : false}
+          disabled={errors.password || errors.email_or_phone ? true : false}
           onClick={() => {
             handleSubmit();
           }}
