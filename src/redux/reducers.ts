@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 
-import counter from "@redux/slices/counter";
+import Auth from "@redux/slices/Auth";
 
-const rootReducer = combineReducers({ counter });
+const rootReducer = combineReducers({ Auth });
 
 export type RootState = ReturnType<typeof rootReducer>;
 
