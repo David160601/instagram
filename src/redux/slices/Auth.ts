@@ -17,4 +17,11 @@ const authSlice = createSlice({
     },
 });
 
+export const loginUser = (data: UserInterface) => async () => {
+    try {
+        console.log(data)
+    } catch (error) {
+        console.log(error);
+    }
+}
 export default authSlice.reducer;
