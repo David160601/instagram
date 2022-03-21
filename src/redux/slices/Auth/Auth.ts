@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { DispatchProp } from "react-redux";
 import service from "src/Service";
 
 interface AuthInterface {
@@ -18,10 +19,16 @@ const authSlice = createSlice({
     },
 });
 
-export const loginUser = (data: LoginInterface) => async () => {
+export const loginUser = (data: LoginInterface) => async (dispatch: any) => {
     try {
-        const test = await service.post("auth/login", data);
-        console.log(test)
+        const res = await service.post("auth/login", data);
+        if (res.status === 201) {
+            dispatch(authSlice.actions.saveUserInformation({
+                ...res.data.user,
+                token: res.data.jwt_token
+
+            }))
+        }
     } catch (error) {
         console.log(error);
     }
