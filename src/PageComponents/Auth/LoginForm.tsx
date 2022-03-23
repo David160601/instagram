@@ -1,13 +1,16 @@
-import { Box, Button, styled, Typography } from "@mui/material";
+import { Box, styled, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import TextFieldstyled from "@components/TextFieldStyled";
 import { useFormik, Field, FormikProvider } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { loginUser } from "@redux/slices/Auth/Auth";
 import { useRouter } from "next/router";
+import { LoadingButton } from "@mui/lab";
+import { FormHelperText } from "@mui/material";
+import { useSelector } from "react-redux";
 const FormBox = styled("div")(({ theme }) => ({
   width: 270,
   padding: theme.spacing(2, 5),
@@ -23,6 +26,7 @@ const FormBox = styled("div")(({ theme }) => ({
 }));
 type Props = {};
 const LoginForm = (props: Props) => {
+  const [error, setError] = useState("");
   const router = useRouter();
   const dispatch = useDispatch();
   const signInSchema = Yup.object().shape({
@@ -37,12 +41,15 @@ const LoginForm = (props: Props) => {
     validationSchema: signInSchema,
     onSubmit: async (values: LoginInterface) => {
       const res: any = await dispatch(loginUser(values));
-      if (res.status === 201) {
+      if (res?.status === 201) {
         router.push("/home");
+      } else {
+        setError(res.response.data.message);
       }
     },
   });
-  const { handleSubmit, errors } = formik;
+  const { handleSubmit, errors, isSubmitting } = formik;
+
   return (
     <FormikProvider value={formik}>
       <FormBox>
@@ -75,7 +82,8 @@ const LoginForm = (props: Props) => {
           sx={{ mb: 1 }}
           as={TextFieldstyled}
         />
-        <Button
+        <LoadingButton
+          loading={isSubmitting}
           disabled={errors.password || errors.email_or_phone ? true : false}
           onClick={() => {
             handleSubmit();
@@ -93,7 +101,8 @@ const LoginForm = (props: Props) => {
           }}
         >
           Log in
-        </Button>
+        </LoadingButton>
+
         {/* OR */}
         <Box
           component="div"
@@ -139,6 +148,11 @@ const LoginForm = (props: Props) => {
             </Typography>
           </Box>
         </Link>
+        {error !== "" && (
+          <FormHelperText sx={{ textAlign: "center" }} error>
+            {error}
+          </FormHelperText>
+        )}
         <Link href="/">
           <Typography
             variant="subtitle2"

@@ -1,14 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import service from "src/Service";
 
-
 interface AuthInterface {
     user: UserInterface | null;
-    error: any;
+
 }
 const initialState: AuthInterface = {
     user: null,
-    error: null
+
 };
 
 const authSlice = createSlice({
@@ -18,6 +17,7 @@ const authSlice = createSlice({
         saveUserInformation: (state, action) => {
             state.user = action.payload;
         },
+
     },
 });
 
@@ -35,8 +35,9 @@ export const loginUser = (data: LoginInterface) => async (dispatch: any) => {
             dispatch(authSlice.actions.saveUserInformation(user));
         }
         return res;
-    } catch (error) {
-        console.log(error);
+    } catch (error: any) {
+        console.log(error)
+        return error;
     }
 }
 export default authSlice.reducer;
