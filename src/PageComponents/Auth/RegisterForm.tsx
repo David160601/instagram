@@ -5,6 +5,9 @@ import TextFieldstyled from "@components/TextFieldStyled";
 import * as Yup from "yup";
 import { useFormik, Field, FormikProvider } from "formik";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { registerUser } from "@redux/slices/Auth/Auth";
+import { LoadingButton } from "@mui/lab";
 const FormBox = styled("div")(({ theme }) => ({
   width: 270,
   padding: theme.spacing(2, 5),
@@ -13,7 +16,6 @@ const FormBox = styled("div")(({ theme }) => ({
   marginBottom: theme.spacing(1),
   [theme.breakpoints.down("mobile")]: {
     width: "100%",
-
     padding: 0,
     background: "none",
     border: "none",
@@ -21,20 +23,32 @@ const FormBox = styled("div")(({ theme }) => ({
 }));
 type Props = {};
 const RegisterForm = (props: Props) => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const registerSchema = Yup.object().shape({
     email_or_phone: Yup.string().required("Required"),
+    fullname: Yup.string().required("Required"),
     password: Yup.string().required("Required"),
+    confirm_password: Yup.string().required("Required"),
   });
   const formik = useFormik({
     initialValues: {
+      fullname: "",
       email_or_phone: "",
       password: "",
+      confirm_password: "",
+      gender: 1,
     },
     validationSchema: registerSchema,
-    onSubmit: async (values: LoginInterface) => {},
+    onSubmit: async (values: LoginInterface) => {
+      const res: any = await dispatch(registerUser(values));
+      if (res.status === 201) {
+        router.push("/home");
+      }
+    },
   });
-  const { handleSubmit, errors, isSubmitting } = formik;
+  const { handleSubmit, isSubmitting, errors, values } = formik;
+  console.log(values);
   return (
     <FormikProvider value={formik}>
       <FormBox>
@@ -81,36 +95,61 @@ const RegisterForm = (props: Props) => {
           <Box sx={{ height: "1px", background: "#dbdbdb", width: "100%" }} />
           <Box />
         </Box>
-        <TextFieldstyled
+        <Field
+          name="email_or_phone"
+          id="email_or_phone"
           label="Phone number, username, or email"
           variant="filled"
           fullWidth
           size="small"
           sx={{ mb: 0.8 }}
+          as={TextFieldstyled}
         />
-        <TextFieldstyled
-          label="Full name"
+        <Field
+          name="fullname"
+          id="fullname"
+          label="Full Name"
           variant="filled"
           fullWidth
           size="small"
           sx={{ mb: 0.8 }}
+          as={TextFieldstyled}
         />
-        <TextFieldstyled
-          label="Username"
-          variant="filled"
-          fullWidth
-          size="small"
-          sx={{ mb: 0.8 }}
-        />
-        <TextFieldstyled
+
+        <Field
+          name="password"
+          id="password"
           variant="filled"
           label="Password"
           type="password"
           fullWidth
           size="small"
           sx={{ mb: 0.8 }}
+          as={TextFieldstyled}
         />
-        <Button
+        <Field
+          name="confirm_password"
+          id="confirm_password"
+          label="Confirm Password"
+          variant="filled"
+          fullWidth
+          size="small"
+          sx={{ mb: 0.8 }}
+          as={TextFieldstyled}
+        />
+        <LoadingButton
+          disabled={
+            errors.password ||
+            errors.email_or_phone ||
+            errors.fullname ||
+            errors.confirm_password
+              ? true
+              : false
+          }
+          onClick={() => {
+            handleSubmit();
+          }}
+          loading={isSubmitting}
           color="primary"
           disableElevation
           variant="contained"
@@ -123,7 +162,7 @@ const RegisterForm = (props: Props) => {
           }}
         >
           Sign up
-        </Button>
+        </LoadingButton>
         <Typography
           variant="subtitle2"
           sx={{ textAlign: "center", color: "greyLetter", mt: 1.5, mb: 2 }}

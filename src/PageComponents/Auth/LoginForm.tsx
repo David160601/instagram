@@ -48,6 +48,7 @@ const LoginForm = (props: Props) => {
     },
   });
   const { handleSubmit, errors, isSubmitting } = formik;
+
   return (
     <FormikProvider value={formik}>
       <FormBox>

@@ -40,4 +40,18 @@ export const loginUser = (data: LoginInterface) => async (dispatch: any) => {
         return error;
     }
 }
+export const registerUser = (data: LoginInterface) => async (dispatch: any) => {
+    try {
+        const res = await service.post("auth/signup", data);
+        if (res.status === 201) {
+            const res = await dispatch(loginUser({
+                email_or_phone: data.email_or_phone,
+                password: data.password
+            }))
+            return res;
+        }
+    } catch (error: any) {
+        return error;
+    }
+}
 export default authSlice.reducer;

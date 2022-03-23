@@ -29,7 +29,6 @@ const signup: React.FC = () => {
     <Home>
       <Container>
         <Box component="div" sx={{ display: "flex", alignItems: "center" }}>
-          <ImageBox />
           <Formbox sx={{ mt: -5 }}>
             <RegisterForm />
             <OtherBox title="Have an account ?" href="/" label="Login" />
