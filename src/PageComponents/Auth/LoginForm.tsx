@@ -37,7 +37,6 @@ const LoginForm = (props: Props) => {
     validationSchema: signInSchema,
     onSubmit: async (values: LoginInterface) => {
       const res: any = await dispatch(loginUser(values));
-      console.log(res);
       if (res.status === 201) {
         router.push("/home");
       }

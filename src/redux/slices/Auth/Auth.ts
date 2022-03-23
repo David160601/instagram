@@ -12,7 +12,7 @@ const initialState: AuthInterface = {
 };
 
 const authSlice = createSlice({
-    name: "counter",
+    name: "auth",
     initialState,
     reducers: {
         saveUserInformation: (state, action) => {
@@ -27,10 +27,11 @@ export const loginUser = (data: LoginInterface) => async (dispatch: any) => {
         if (res.status === 201) {
             const user: UserInterface = {
                 ...res.data.user,
-                token: res.data.jwt_token
+                token: `token=${res.data.jwt_token}`
 
             };
             localStorage.setItem("user", JSON.stringify(user));
+            document.cookie = user.token;
             dispatch(authSlice.actions.saveUserInformation(user));
         }
         return res;
