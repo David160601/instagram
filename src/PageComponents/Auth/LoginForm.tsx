@@ -10,7 +10,6 @@ import { loginUser } from "@redux/slices/Auth/Auth";
 import { useRouter } from "next/router";
 import { LoadingButton } from "@mui/lab";
 import { FormHelperText } from "@mui/material";
-import { useSelector } from "react-redux";
 const FormBox = styled("div")(({ theme }) => ({
   width: 270,
   padding: theme.spacing(2, 5),
@@ -49,7 +48,6 @@ const LoginForm = (props: Props) => {
     },
   });
   const { handleSubmit, errors, isSubmitting } = formik;
-
   return (
     <FormikProvider value={formik}>
       <FormBox>
