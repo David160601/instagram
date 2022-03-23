@@ -1,6 +1,6 @@
-import { Box, Button, styled, Typography } from "@mui/material";
+import { Box, Button, FormHelperText, styled, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import TextFieldstyled from "@components/TextFieldStyled";
 import * as Yup from "yup";
 import { useFormik, Field, FormikProvider } from "formik";
@@ -23,6 +23,7 @@ const FormBox = styled("div")(({ theme }) => ({
 }));
 type Props = {};
 const RegisterForm = (props: Props) => {
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const router = useRouter();
   const registerSchema = Yup.object().shape({
@@ -44,11 +45,28 @@ const RegisterForm = (props: Props) => {
       const res: any = await dispatch(registerUser(values));
       if (res.status === 201) {
         router.push("/home");
+      } else {
+        setError(res.response.data.message);
       }
     },
   });
   const { handleSubmit, isSubmitting, errors, values } = formik;
-
+  const validate = () => {
+    if (
+      errors.password ||
+      errors.email_or_phone ||
+      errors.confirm_password ||
+      errors.fullname ||
+      values.email_or_phone == "" ||
+      values.password == "" ||
+      values.confirm_password == "" ||
+      values.fullname == ""
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   return (
     <FormikProvider value={formik}>
       <FormBox>
@@ -139,14 +157,7 @@ const RegisterForm = (props: Props) => {
           as={TextFieldstyled}
         />
         <LoadingButton
-          disabled={
-            errors.password ||
-            errors.email_or_phone ||
-            errors.fullname ||
-            errors.confirm_password
-              ? true
-              : false
-          }
+          disabled={validate()}
           onClick={() => {
             handleSubmit();
           }}
@@ -164,6 +175,11 @@ const RegisterForm = (props: Props) => {
         >
           Sign up
         </LoadingButton>
+        {error !== "" && (
+          <FormHelperText sx={{ textAlign: "center" }} error>
+            {error}
+          </FormHelperText>
+        )}
         <Typography
           variant="subtitle2"
           sx={{ textAlign: "center", color: "greyLetter", mt: 1.5, mb: 2 }}

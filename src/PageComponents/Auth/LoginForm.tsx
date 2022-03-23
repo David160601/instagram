@@ -47,8 +47,19 @@ const LoginForm = (props: Props) => {
       }
     },
   });
-  const { handleSubmit, errors, isSubmitting } = formik;
-
+  const { handleSubmit, errors, isSubmitting, values } = formik;
+  const validate = () => {
+    if (
+      errors.password ||
+      errors.email_or_phone ||
+      values.email_or_phone == "" ||
+      values.password == ""
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   return (
     <FormikProvider value={formik}>
       <FormBox>
@@ -83,7 +94,7 @@ const LoginForm = (props: Props) => {
         />
         <LoadingButton
           loading={isSubmitting}
-          disabled={errors.password || errors.email_or_phone ? true : false}
+          disabled={validate()}
           onClick={() => {
             handleSubmit();
           }}
