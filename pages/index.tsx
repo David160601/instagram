@@ -1,10 +1,11 @@
 import { Box, styled } from "@mui/material";
 import React from "react";
 import Home from "src/components/Layouts/Home";
-import AppBox from "src/PageComponents/AppBox";
-import LoginForm from "src/PageComponents/LoginForm";
-import OtherBox from "src/PageComponents/OtherBox";
-import ImageBox from "src/PageComponents/ImageBox";
+import AppBox from "src/PageComponents/Auth/AppBox";
+import ImageBox from "src/PageComponents/Auth/ImageBox";
+import LoginForm from "src/PageComponents/Auth/LoginForm";
+import OtherBox from "src/PageComponents/Auth/OtherBox";
+
 const Container = styled("div")(({ theme }) => ({
   minHeight: "90vh",
   display: "flex",
