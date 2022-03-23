@@ -27,11 +27,11 @@ export const loginUser = (data: LoginInterface) => async (dispatch: any) => {
         if (res.status === 201) {
             const user: UserInterface = {
                 ...res.data.user,
-                token: `token=${res.data.jwt_token}`
+                token: res.data.jwt_token
 
             };
             localStorage.setItem("user", JSON.stringify(user));
-            document.cookie = user.token;
+            document.cookie = `token=${res.data.jwt_token}`;
             dispatch(authSlice.actions.saveUserInformation(user));
         }
         return res;
@@ -53,5 +53,12 @@ export const registerUser = (data: LoginInterface) => async (dispatch: any) => {
     } catch (error: any) {
         return error;
     }
+}
+export const logoutUser = () => async (dispatch: any, getState: any) => {
+    const user = getState().auth.user;
+    document.cookie = `token=${user.token}; expires=Thu, 18 Dec 2013 12:00:00 UTC`;
+    dispatch(authSlice.actions.saveUserInformation(null))
+    localStorage.removeItem("user");
+
 }
 export default authSlice.reducer;

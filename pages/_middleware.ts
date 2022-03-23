@@ -8,5 +8,12 @@ export default function middleware(req: any) {
             return NextResponse.redirect("/");
         }
     }
+    if (req.url.includes("/")) {
+        if (cookies.token) {
+            return NextResponse.redirect("/home")
 
+        } else {
+            return NextResponse.next();
+        }
+    }
 }

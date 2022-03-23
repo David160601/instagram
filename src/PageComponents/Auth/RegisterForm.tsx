@@ -48,7 +48,7 @@ const RegisterForm = (props: Props) => {
     },
   });
   const { handleSubmit, isSubmitting, errors, values } = formik;
-  console.log(values);
+
   return (
     <FormikProvider value={formik}>
       <FormBox>
@@ -131,6 +131,7 @@ const RegisterForm = (props: Props) => {
           name="confirm_password"
           id="confirm_password"
           label="Confirm Password"
+          type="password"
           variant="filled"
           fullWidth
           size="small"
