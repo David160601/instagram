@@ -1,6 +1,6 @@
 import { Box, styled } from "@mui/material";
 import React from "react";
-import Home from "src/components/Layouts/Home";
+import Home from "@components/Layouts/Auth";
 import AppBox from "src/PageComponents/Auth/AppBox";
 import ImageBox from "src/PageComponents/Auth/ImageBox";
 import LoginForm from "src/PageComponents/Auth/LoginForm";
