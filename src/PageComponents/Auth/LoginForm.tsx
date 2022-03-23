@@ -7,6 +7,7 @@ import { useFormik, Field, FormikProvider } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { loginUser } from "@redux/slices/Auth/Auth";
+import { useRouter } from "next/router";
 const FormBox = styled("div")(({ theme }) => ({
   width: 270,
   padding: theme.spacing(2, 5),
@@ -22,6 +23,7 @@ const FormBox = styled("div")(({ theme }) => ({
 }));
 type Props = {};
 const LoginForm = (props: Props) => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const signInSchema = Yup.object().shape({
     email_or_phone: Yup.string().required("Required"),
@@ -33,8 +35,11 @@ const LoginForm = (props: Props) => {
       password: "",
     },
     validationSchema: signInSchema,
-    onSubmit: (values: LoginInterface) => {
-      dispatch(loginUser(values));
+    onSubmit: async (values: LoginInterface) => {
+      const res = await dispatch(loginUser(values));
+      if (res.status === 201) {
+        router.push("/home");
+      }
     },
   });
   const { handleSubmit, errors } = formik;

@@ -3,10 +3,12 @@ import service from "src/Service";
 
 
 interface AuthInterface {
-    user: any;
+    user: UserInterface | null;
+    error: any;
 }
 const initialState: AuthInterface = {
     user: null,
+    error: null
 };
 
 const authSlice = createSlice({
@@ -31,6 +33,7 @@ export const loginUser = (data: LoginInterface) => async (dispatch: any) => {
             localStorage.setItem("user", JSON.stringify(user));
             dispatch(authSlice.actions.saveUserInformation(user));
         }
+        return res;
     } catch (error) {
         console.log(error);
     }
