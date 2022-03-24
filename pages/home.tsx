@@ -21,6 +21,7 @@ const Home = (props: Props) => {
         >
           logout
         </Button>
+        test
       </Box>
     </HomeLayout>
   );
