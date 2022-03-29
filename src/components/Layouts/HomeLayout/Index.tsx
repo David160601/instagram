@@ -18,7 +18,7 @@ const index = ({ children }: Props) => {
       </Head>
       <Header />
       <Container disableGutters maxWidth="md">
-        <Grid container spacing="5">
+        <Grid container spacing={5}>
           <Grid item xs={7}>
             {children}
           </Grid>

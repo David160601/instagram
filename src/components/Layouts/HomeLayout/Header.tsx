@@ -10,7 +10,7 @@ const Header = (props: Props) => {
     <AppBar
       position="sticky"
       sx={{
-        backgroundColor: "backgroundColor",
+        backgroundColor: "white",
         boxShadow: "1px 1px 1px rgba(0,0,0,0.2)",
         py: 2,
       }}

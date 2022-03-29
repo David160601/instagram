@@ -4,28 +4,33 @@ type Props = {};
 
 const ProfileList = (props: Props) => {
   return (
-    <Grid
-      container
-      alignItems="center"
-      justifyContent="space-between"
-      spacing={2}
+    <Box
+      component="div"
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
     >
-      <Grid item xs={2}>
+      <Box component="div" sx={{ display: "flex", alignItems: "center" }}>
         <Avatar
           sizes="small"
-          sx={{ width: 50, height: 50 }}
+          sx={{ width: 50, height: 50, mr: 2, cursor: "pointer" }}
           alt="Cindy Baker"
           src="/static/images/avatar/3.jpg"
         />
-      </Grid>
-      <Grid item xs={7}>
-        <Typography variant="subtitle1">pheng_david</Typography>
-        <Typography variant="subtitle2">pheng david</Typography>
-      </Grid>
-      <Grid item xs={3}>
-        <Button size="small">Switch</Button>
-      </Grid>
-    </Grid>
+        <Box component="div">
+          <Typography variant="subtitle1">pheng_david</Typography>
+          <Typography variant="subtitle2">pheng david</Typography>
+        </Box>
+      </Box>
+      <Typography
+        variant="subtitle2"
+        sx={{ color: "primary.main", cursor: "pointer" }}
+      >
+        See All
+      </Typography>
+    </Box>
   );
 };
 
