@@ -1,6 +1,7 @@
-import { Box } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import Head from "next/head";
 import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 type Props = {
   children: JSX.Element;
@@ -16,7 +17,16 @@ const index = ({ children }: Props) => {
         <title>Instagram</title>
       </Head>
       <Header />
-      {children}
+      <Container disableGutters maxWidth="md">
+        <Grid container>
+          <Grid item xs={7}>
+            {children}
+          </Grid>
+          <Grid item xs={5}>
+            <Sidebar />
+          </Grid>
+        </Grid>
+      </Container>
     </Box>
   );
 };
