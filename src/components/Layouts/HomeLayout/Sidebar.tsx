@@ -4,7 +4,7 @@ import ProfileList from "src/PageComponents/Home/ProfileList";
 
 function Sidebar() {
   return (
-    <Box component="div" sx={{ position: "sticky", top: "8vh", left: 0 }}>
+    <Box component="div" sx={{ position: "sticky", top: "9vh", left: 0 }}>
       <Grid container direction="column" spacing={1}>
         <Grid item>
           <ProfileList />

@@ -17,8 +17,8 @@ const index = ({ children }: Props) => {
         <title>Instagram</title>
       </Head>
       <Header />
-      <Container disableGutters maxWidth="md">
-        <Grid container spacing={5}>
+      <Container disableGutters maxWidth="md" sx={{ mt: 3 }}>
+        <Grid container spacing={4}>
           <Grid item xs={7}>
             {children}
           </Grid>
