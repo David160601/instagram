@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import {
   Avatar,
   Badge,
+  Box,
   Container,
   Grid,
   Stack,
@@ -22,15 +23,16 @@ const Header = (props: Props) => {
       sx={{
         backgroundColor: "backgroundColor",
         boxShadow: "1px 1px 1px rgba(0,0,0,0.2)",
+        py: 1,
       }}
     >
       <Container disableGutters maxWidth="md">
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item sx={{ cursor: "pointer" }}>
-            <Image src="/img/logo.png" alt="logo" width="120" height="60" />
-          </Grid>
-          <Grid item>
-            <TextField placeholder="Search" size="small" />
+            <Box
+              component="img"
+              src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+            />
           </Grid>
           <Grid item>
             <Stack direction="row" spacing={2}>
