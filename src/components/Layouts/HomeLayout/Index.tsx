@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import Head from "next/head";
+import Header from "./Header";
 
 type Props = {
   children: JSX.Element;
@@ -14,6 +15,7 @@ const index = ({ children }: Props) => {
       <Head>
         <title>Instagram</title>
       </Head>
+      <Header />
       {children}
     </Box>
   );
