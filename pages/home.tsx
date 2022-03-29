@@ -12,7 +12,7 @@ const Home = (props: Props) => {
   const router = useRouter();
   return (
     <HomeLayout>
-      <Box component="div">
+      <Box component="div" sx={{ height: "300vh" }}>
         <Button
           onClick={() => {
             dispatch(logoutUser());
@@ -21,6 +21,16 @@ const Home = (props: Props) => {
         >
           Logout
         </Button>
+        <Box
+          component="img"
+          sx={{ width: "100%" }}
+          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/therock-244700385-287824776511811-9217011658444215511-n-1634123861.jpg?resize=980:*"
+        ></Box>
+        <Box
+          component="img"
+          sx={{ width: "100%" }}
+          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/therock-244700385-287824776511811-9217011658444215511-n-1634123861.jpg?resize=980:*"
+        ></Box>
       </Box>
     </HomeLayout>
   );
